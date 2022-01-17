@@ -8,17 +8,44 @@ namespace SnakeAndLadder
 {
     public class Program
     {
+
+        public const int NO_OF_PLAYER = 1;
+        public const int POSITION = 0;
+        public const int NO_PLAY = 0;
+        public const int SNAKE = 1;
+        public const int LADDER = 2;
         static void Main(string[] args)
         {
-            //single position at start
-            Console.WriteLine("Welcome to snake and ladder program");  //Welcome message
-            int NO_OF_PLAYER = 1;              //number of player
-            int POSITION = 0;                 //position of player
+
+            Console.WriteLine("Welcome to snake and ladder program");            //welcome message
+
             Console.WriteLine("Number of player: " + NO_OF_PLAYER + " is playing in game at position: " + POSITION);
-            //roll dice
-            Random random = new Random();               //Computation
+            Random random = new Random();               //Computatiom
             int dicenumber = random.Next(0, 7);
-            Console.WriteLine("Roll the dice and get the number on dice " + dicenumber);
+            Console.WriteLine("Roll the dice and get answer " + dicenumber);
+
+            Random random1 = new Random();
+            int Checkposition = random1.Next(0, 3);
+            //Option statement
+            switch (Checkposition)
+            {
+                case NO_PLAY:
+                    int newposition = (POSITION);
+                    Console.WriteLine("Position of player not changed " + newposition);
+                    break;
+                case SNAKE:
+                    newposition = (POSITION - dicenumber);
+                    Console.WriteLine("Position of player is decrement and reached to  " + newposition);
+                    break;
+                case LADDER:
+                    newposition = (POSITION + dicenumber);
+                    Console.WriteLine("Position of player is increment and reached to  " + newposition);
+                    break;
+                default:
+                    Console.WriteLine("Invalid action");
+                    break;
+
+            }
         }
     }
 }
