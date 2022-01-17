@@ -16,6 +16,7 @@ namespace SnakeAndLadder
             //Defiend position
             int Position_player = 0;
             int Final_position = 100;
+            int numOfDieRoll = 0;
             Random random = new Random();        //Computation
 
             while (Position_player < Final_position)   //Condition
@@ -46,10 +47,13 @@ namespace SnakeAndLadder
                             Position_player = 0;
                         }
                         break;
-
                 }
+                numOfDieRoll++;
+                Console.Write("Number of times dice rolled: " + numOfDieRoll);
+
+            }
             }
         }
     }
-}
+
 
